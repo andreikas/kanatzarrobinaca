@@ -8,5 +8,14 @@ public class MarsRobot {
     int speed;
     float temperature;
 
+    void checkTemperature(){
+
+
+    }
+
+    void showAttributes() {
+
+        
+    }
 
 }
