@@ -11,5 +11,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         MarsRobot spirit = new MarsRobot();
+
+        spirit.status = "exploring";
+        spirit.speed = 2;
+        spirit.temperature = -60;
     }
 }
