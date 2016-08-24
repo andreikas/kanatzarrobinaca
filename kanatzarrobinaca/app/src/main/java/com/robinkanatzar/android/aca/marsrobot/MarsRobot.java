@@ -9,13 +9,16 @@ public class MarsRobot {
     float temperature;
 
     void checkTemperature(){
-
+        if (temperature < -80) {
+            status = "returning home";
+            speed = 5;
+        }
 
     }
 
     void showAttributes() {
 
-        
+
     }
 
 }
