@@ -26,5 +26,17 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Checking temperature");
         spirit.checkTemperature();
         spirit.showAttributes();
+
+        MarsRobot moody = new MarsRobot();
+
+        moody.mood = "angry";
+
+        System.out.println("Reading the robot's mood...");
+        moody.readingMood();
+
+        System.out.println("Telling the robot a joke...");
+        moody.mood = "happy";
+        moody.readingMood();
+
     }
 }
