@@ -9,5 +9,15 @@ public class VariableTest extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_variable_test);
+
+        String rstring;
+        float rfloat;
+        int rint;
+        double rdouble;
+        boolean rbool;
+        char rchar;
+        short rshort;
+        byte rbyte;
+        
     }
 }
