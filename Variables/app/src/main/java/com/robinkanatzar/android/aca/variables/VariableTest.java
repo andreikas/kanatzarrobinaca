@@ -19,8 +19,18 @@ public class VariableTest extends AppCompatActivity {
         char rchar;
         short rshort;
         byte rbyte;
+        long rlong;
 
         //assign values to each variable
+        rstring = "test string";
+        rbool = false;
+        rchar = R;
+        rshort = 1;
+        rbyte = 2;
+        rint = 3;
+        rlong = 4;
+        rdouble = 88;
+        rfloat = 75;
 
         //print out the values of each variable
         System.out.println("string: " + rstring);
@@ -31,6 +41,6 @@ public class VariableTest extends AppCompatActivity {
         System.out.println("char: " + rchar);
         System.out.println("short: " + rshort);
         System.out.println("byte: " + rbyte);
-
+        System.out.println("long: " + rlong);
     }
 }
