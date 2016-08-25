@@ -24,7 +24,7 @@ public class VariableTest extends AppCompatActivity {
         //assign values to each variable
         rstring = "test string";
         rbool = false;
-        rchar = R;
+        rchar = '\u039A';
         rshort = 1;
         rbyte = 2;
         rint = 3;
