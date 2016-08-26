@@ -35,25 +35,16 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/celText"
-        android:layout_below="@+id/fahText"
-        android:layout_alignRight="@+id/fahText"
-        android:layout_alignEnd="@+id/fahText"
-        android:layout_marginTop="51dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Celcius"
         android:id="@+id/CelView"
-        android:layout_alignTop="@+id/celText"
-        android:layout_toRightOf="@+id/celText" />
+        android:layout_below="@+id/fahView"
+        android:layout_alignLeft="@+id/fahView"
+        android:layout_alignStart="@+id/fahView"
+        android:layout_marginTop="46dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,4 +54,14 @@
         android:layout_alignTop="@+id/fahText"
         android:layout_toRightOf="@+id/fahText"
         android:layout_alignBottom="@+id/fahText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/celText"
+        android:layout_below="@+id/CelView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
