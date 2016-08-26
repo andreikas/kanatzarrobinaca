@@ -12,5 +12,55 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Convert Temperature"
+        android:id="@+id/titleView" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="convert"
+        android:id="@+id/convertButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="54dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/fahText"
+        android:layout_below="@+id/titleView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/celText"
+        android:layout_below="@+id/fahText"
+        android:layout_alignRight="@+id/fahText"
+        android:layout_alignEnd="@+id/fahText"
+        android:layout_marginTop="51dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Celcius"
+        android:id="@+id/CelView"
+        android:layout_alignTop="@+id/celText"
+        android:layout_toRightOf="@+id/celText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fahrenheit"
+        android:id="@+id/fahView"
+        android:layout_alignTop="@+id/fahText"
+        android:layout_toRightOf="@+id/fahText"
+        android:layout_alignBottom="@+id/fahText" />
 </RelativeLayout>
