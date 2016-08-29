@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     TextView mFah; // text user enters
     TextView mCel; // text user enters
     Button mConvert; // button user interacts with
+    TextView mOutputTextView;
 
 
     @Override
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         // R stands for resource
         mCel = (TextView) findViewById(R.id.celText);
         mConvert = (Button) findViewById(R.id.convertButton);
+        mOutputTextView = (TextView) findViewById(R.id.outputText); //RCK1
 
         // click listener required to listen to events on a button
         // this will now execute whenever the button is clicked
@@ -48,7 +50,11 @@ public class MainActivity extends AppCompatActivity {
                     fahValue = fahValue * 5;
 
                     convertedTemp = String.valueOf(fahValue);
+
+                    mOutputTextView.setText(currentFah + " fah is " + convertedTemp);
+
                     mCel.setText(convertedTemp);
+                    mFah.setText(""); // puts empty string into field
 
                 } else if (!mCel.getText().toString().equals("")) {
                     // if the cel field is not empty
@@ -62,8 +68,9 @@ public class MainActivity extends AppCompatActivity {
                     celValue = celValue + 32;
 
                     convertedTemp = String.valueOf(celValue);
-                    mFah.setText(convertedTemp);
-
+                    //mFah.setText(convertedTemp);
+                    mOutputTextView.setText(currentCel + "cel is " + convertedTemp + " fah");
+                    mCel.setText(""); // clears celcius field
                 }
 
             }
