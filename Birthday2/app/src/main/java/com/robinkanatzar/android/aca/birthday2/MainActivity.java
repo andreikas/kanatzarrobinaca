@@ -27,5 +27,14 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("day: " + mDay);
         System.out.println("year: " + mYear);
 
+        Integer mVal1 = 1;
+        Integer mVal2 = 2;
+        Integer mVal3 = 3;
+
+        // declare new object
+        Object mObject = new lab829(mVal1, mVal2, mVal3); // create an instance of the lab829 class
+
+
+        //mObject.printValues(mVal1, mVal2, mVal3);
     }
 }
