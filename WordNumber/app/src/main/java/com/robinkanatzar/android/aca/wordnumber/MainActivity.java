@@ -47,7 +47,74 @@ switch(expression){
             @Override
             public void onClick(View view) {
                 String number = mEditText.getText().toString();
-                mTextView.setText(number);
+                number = number.toLowerCase();
+                //mTextView.setText(number);
+
+                //determine which integer to print
+                switch(number.charAt(0)) {
+                    case 'o':
+                        if(number.charAt(1)=='n') {
+                            // the number is one
+                            mTextView.setText(1 + "");
+                        } else {
+                            mTextView.setText("ERROR: Invalid Entry");
+                        }
+                        break;
+                    case 't':
+                        if(number.charAt(1)=='w') {
+                            // the number is two
+                            mTextView.setText(2 + "");
+                        } else if(number.charAt(1)=='h') {
+                            // the number is three
+                            mTextView.setText(3 + "");
+                        } else if(number.charAt(1)=='e') {
+                            // the number is ten
+                            mTextView.setText(10 + "");
+                        } else {
+                            mTextView.setText("ERROR: Invalid Entry");
+                        }
+                        break;
+                    case 'f':
+                        if(number.charAt(1)=='o') {
+                            // the number is four
+                            mTextView.setText(4 + "");
+                        } else if(number.charAt(1)=='i') {
+                            // the number is five
+                            mTextView.setText(5 + "");
+                        } else {
+                            mTextView.setText("ERROR: Invalid Entry");
+                        }
+                        break;
+                    case 's':
+                        if(number.charAt(1)=='i') {
+                            // the number is six
+                            mTextView.setText(6 + "");
+                        } else if(number.charAt(1)=='e') {
+                            // the number is seven
+                            mTextView.setText(7 + "");
+                        } else {
+                            mTextView.setText("ERROR: Invalid Entry");
+                        }
+                        break;
+                    case 'e':
+                        if(number.charAt(1)=='i') {
+                            // the number is eight
+                            mTextView.setText(8 + "");
+                        } else {
+                            mTextView.setText("ERROR: Invalid Entry");
+                        }
+                        break;
+                    case 'n':
+                        if(number.charAt(1)=='i') {
+                            // the number is nine
+                            mTextView.setText(9 + "");
+                        } else {
+                            mTextView.setText("ERROR: Invalid Entry");
+                        }
+                        break;
+                    default:
+                        mTextView.setText("ERROR: Invalid Entry");
+                }
             }
         });
 
