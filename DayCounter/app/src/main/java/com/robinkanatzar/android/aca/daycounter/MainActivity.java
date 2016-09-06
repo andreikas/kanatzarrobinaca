@@ -16,11 +16,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         int yearIn = 2016;
-        int monthIn = 1;
+        int monthIn;
+        int dayIn;
+        int totalDaysInMonth; // total days in the month (value of monthIn variable)
 
-        System.out.println(monthIn + "/" + yearIn + "has "
-                + countDays(monthIn, yearIn) + " days.");
-
+        for(monthIn = 1; monthIn < 13; monthIn++) {
+            totalDaysInMonth = countDays(monthIn, yearIn) + 1;
+            for (dayIn = 1; dayIn < totalDaysInMonth; dayIn++) {
+                System.out.println(monthIn + "/" + dayIn + "/" + yearIn + "\n");
+            }
+        }
     }
 
     private int countDays(int month, int year) {
