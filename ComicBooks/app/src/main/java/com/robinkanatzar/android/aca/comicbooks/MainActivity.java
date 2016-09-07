@@ -69,7 +69,7 @@ Display the data back to the user via a TextView.
 
                 Comic userComic = new Comic(mTitle.getText().toString(), mIssueNum.getText().toString(), mCondition.getText().toString(), Float.parseFloat(mBasePrice.getText().toString()));
                 userComic.setPrice((Float) quality.get(userComic.condition));
-                
+
                 mOutput.setText("The adjusted price is: $" + userComic.getPrice());
             }
         });
