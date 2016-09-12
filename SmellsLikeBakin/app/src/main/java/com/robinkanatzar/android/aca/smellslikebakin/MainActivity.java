@@ -12,16 +12,26 @@ public class MainActivity extends AppCompatActivity implements ListFragment.OnRe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListFragment fragment = new ListFragment();
-        android.app.FragmentManager fragmentManager = getFragmentManager();
+        if (savedInstanceState == null) {
+            ListFragment fragment = new ListFragment();
+            android.app.FragmentManager fragmentManager = getFragmentManager();
 
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.placeholder, fragment);
-        fragmentTransaction.commit();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.placeholder, fragment);
+            fragmentTransaction.commit();
+        }
+
     }
 
     @Override
     public void onListRecipeSelected(int index) {
         Toast.makeText(MainActivity.this, Recipes.names[index], Toast.LENGTH_SHORT).show();
+        ViewPageFinder fragment = new ViewPageFinder();
+        android.app.FragmentManager fragmentManager = getFragmentManager();
+
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.placeholder, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
