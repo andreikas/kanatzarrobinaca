@@ -1,5 +1,7 @@
 package com.teamtreehouse.friendlyforecast.services;
 
+import android.util.Log;
+
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.http.GET;
@@ -31,7 +33,8 @@ public class ForecastService {
                 .build();
 
         WeatherService service = restAdapter.create(WeatherService.class);
-        service.getForecastAsync("INSERT YOUR API KEY HERE", "28.4158", "-81.2989", callback);
+        service.getForecastAsync("ef66acfd92686cb1d0042d5dc8228963", "28.4158", "-81.2989", callback);
+        Log.d("RCK", "Inside loadForecastData in ForecastService Class");
     }
 
 }

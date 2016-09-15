@@ -55,7 +55,9 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 loadForecastData();
+                Log.d("RCK", "The insert button has been clicked");
             }
+
         });
 
         mSelectButton = (Button)findViewById(R.id.selectButton);
@@ -107,6 +109,7 @@ public class MainActivity extends Activity {
     protected void loadForecastData() {
         ForecastService service = new ForecastService();
         service.loadForecastData(mForecastCallback);
+        Log.d("RCK", "Inside loadForecastData in MainActivity");
     }
 
     protected Callback<Forecast> mForecastCallback = new Callback<Forecast>() {
@@ -121,6 +124,7 @@ public class MainActivity extends Activity {
             mDataSource.insertForecast(forecast);
             updateHighAndLow();
             enableOtherButtons();
+            Log.d("RCK", "Inside mForecastCallback in MainActivity");
         }
 
         @Override
