@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 dialog.sendNoteSelected(mTempNote);
 
                 // Create the dialog
-                dialog.show(getFragmentManager(), "123");
+                dialog.show(getFragmentManager(), "");
             }
         });
 
@@ -57,15 +57,11 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_add) {
-            // Create a new DialogShowNote called dialog
+
             DialogNewNote dialog = new DialogNewNote();
-
-            // Send the note via the sendNoteSelected method
-            //dialog.sendNoteSelected(mTempNote);
-
-            // Create the dialog
-            dialog.show(getFragmentManager(), "123");
+            dialog.show(getFragmentManager(), "");
             return true;
+
         }
 
         return super.onOptionsItemSelected(item);
