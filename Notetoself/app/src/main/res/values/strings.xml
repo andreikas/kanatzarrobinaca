@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Note to self</string>
+    <string name="action_settings">ActionSettings</string>
+    <string name="action_add_file">ActionAddFile</string>
 </resources>
