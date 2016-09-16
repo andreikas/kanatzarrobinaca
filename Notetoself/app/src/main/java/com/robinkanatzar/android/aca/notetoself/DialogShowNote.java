@@ -47,18 +47,18 @@ public class DialogShowNote extends DialogFragment {
         ImageView ivIdea = (ImageView) dialogView.findViewById(R.id.imageViewIdea);
 
         if (!mNote.isImportant()){
-            ivImportant.setVisibility(View.GONE);
-            //ivImportant.setVisibility(View.INVISIBLE);
+            //ivImportant.setVisibility(View.GONE);
+            ivImportant.setVisibility(View.INVISIBLE);
         }
 
         if (!mNote.isTodo()){
-            ivTodo.setVisibility(View.GONE);
-            //ivTodo.setVisibility(View.INVISIBLE);
+            //ivTodo.setVisibility(View.GONE);
+            ivTodo.setVisibility(View.INVISIBLE);
         }
 
         if (!mNote.isIdea()){
-            ivIdea.setVisibility(View.GONE);
-            //ivIdea.setVisibility(View.INVISIBLE);
+            //ivIdea.setVisibility(View.GONE);
+            ivIdea.setVisibility(View.INVISIBLE);
         }
 
         Button btnOK = (Button) dialogView.findViewById(R.id.btnOK);
