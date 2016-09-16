@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private MagicBall mMagicBallMessage = new MagicBall();
+
     // establish buttons and text views
     Button mButtonRandomMessage;
     Button mButtonRollDice;
@@ -31,13 +33,15 @@ public class MainActivity extends AppCompatActivity {
     public void buttonWasClicked(View view) {
         // when either of the two buttons is clicked...
 
-
-        // if the random message button was clicked...
+        if (view.getId() == R.id.buttonRandomMessage) {
+            // if the random message button was clicked...
             // display a message in the random message text view
-            mTextViewRandomMessage.setText("Test message for random message text view");
-
-        // if the roll dice button was clicked...
+            String message = mMagicBallMessage.getMessage();
+            mTextViewRandomMessage.setText(message);
+        } else if (view.getId() == R.id.buttonRollDice) {
+            // if the roll dice button was clicked...
             // display a number in the roll dice text view
             mTextViewRollDice.setText("Test message for roll dice text view");
+        }
     }
 }
