@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     // create an instance of the PracticeDataSource class
     protected PracticeDataSource mDataSource;
 
+
     protected Button mInsertButton;
     protected Button mSelectButton;
     protected Button mUpdateButton;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // when the insert button is clicked...
                 // TODO: call the insert method
+                // insertEntry(SQLiteDatabase db, String name, String description)
 
                 Toast.makeText(MainActivity.this, "You clicked the insert button", Toast.LENGTH_SHORT).show();
 
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 // when the select button is clicked...
                 Toast.makeText(MainActivity.this, "You clicked the select button", Toast.LENGTH_SHORT).show();
 
-                // TODO: call the select method
+                mDataSource.selectAllEntries();
 
                 // TODO: print the select on the screen
             }
@@ -72,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // when the updated button is clicked...
                 Toast.makeText(MainActivity.this, "You clicked the Update button", Toast.LENGTH_SHORT).show();
-                // TODO: call a method to update the data
+
+                mDataSource.updateTemperature("Test"); // TODO: update param passed
             }
         });
 
@@ -83,9 +86,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // when the delete button is clicked...
                 Toast.makeText(MainActivity.this, "You clicked the delete button", Toast.LENGTH_SHORT).show();
-                // TODO: call a method to delete the data
+
+                mDataSource.deleteAll();
             }
         });
+
+
     }
 
     @Override
@@ -94,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         mDataSource.open();
+
     }
 
     @Override

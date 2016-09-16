@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class PracticeDataSource {
 
@@ -33,7 +34,9 @@ public class PracticeDataSource {
 
     // INSERT
     public void insertEntry(SQLiteDatabase db, String name, String description) {
-        //mDatabase.beginTransaction();
+        mDatabase.beginTransaction();
+
+        Log.d("RCK", "Inside insertEntry()");
 
         final String Insert_Data="INSERT INTO TABLE_NAME VALUES(SampleTitle, SampleDescription)";
         db.execSQL(Insert_Data);
@@ -50,11 +53,14 @@ public class PracticeDataSource {
             mDatabase.endTransaction();
         }*/
 
-        //mDatabase.endTransaction();
+        mDatabase.endTransaction();
+
     }
 
     // SELECT
     public Cursor selectAllEntries() {
+        Log.d("RCK", "Inside selectAllEntries()");
+
         Cursor cursor = mDatabase.query(
                 PracticeHelper.TABLE_NAME, // table
                 new String[] { PracticeHelper.COLUMN_ID, PracticeHelper.COLUMN_1, PracticeHelper.COLUMN_2 }, // column names
@@ -89,8 +95,10 @@ public class PracticeDataSource {
 
     // UPDATE Operations
     // TODO: add update operations
-    /*
-    public int updateTemperature(double newTemp) {
+
+    public int updateTemperature(String newText) {
+        Log.d("RCK", "Inside updateTemperature()");
+        /*
         ContentValues values = new ContentValues();
         values.put(ForecastHelper.COLUMN_TEMPERATURE, newTemp);
         int rowsUpdated = mDatabase.update(
@@ -98,13 +106,15 @@ public class PracticeDataSource {
                 values, // values
                 null,   // where clause
                 null    // where params
-        );
+        );*/
 
+        int rowsUpdated = 1; // TODO: delete this when the update works properly
         return rowsUpdated;
-    }*/
+    }
 
     // DELETE Operations
     public void deleteAll() {
+        Log.d("RCK", "Inside deleteAll()");
         mDatabase.delete(
                 PracticeHelper.TABLE_NAME, // class.table name to delete
                 null, // where clause
