@@ -1,5 +1,7 @@
 package com.robinkanatzar.android.aca.databasepractice.ui;
 
+import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -45,9 +47,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // when the insert button is clicked...
-                // TODO: call the insert method
-                // insertEntry(SQLiteDatabase db, String name, String description)
 
+                String name = "test name";
+                String description = "test description";
+                mDataSource.insertEntry(name, description);
+
+                // TODO can't get second entry to show in cursor dump
+                //mDataSource.insertEntry("Robin", "Sparkles");
                 Toast.makeText(MainActivity.this, "You clicked the insert button", Toast.LENGTH_SHORT).show();
 
             }
@@ -61,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
                 // when the select button is clicked...
                 Toast.makeText(MainActivity.this, "You clicked the select button", Toast.LENGTH_SHORT).show();
 
-                mDataSource.selectAllEntries();
+                Cursor cursor = mDataSource.selectAllEntries();
+                Log.d("RCK", "dumpCursorToString in Main Activity: " + DatabaseUtils.dumpCursorToString(cursor));
 
                 // TODO: print the select on the screen
             }
@@ -75,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 // when the updated button is clicked...
                 Toast.makeText(MainActivity.this, "You clicked the Update button", Toast.LENGTH_SHORT).show();
 
-                mDataSource.updateTemperature("Test"); // TODO: update param passed
+                mDataSource.updateTemperature("Testing123name"); // TODO: update param passed
             }
         });
 

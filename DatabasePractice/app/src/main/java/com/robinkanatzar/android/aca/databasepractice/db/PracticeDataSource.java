@@ -1,7 +1,9 @@
 package com.robinkanatzar.android.aca.databasepractice.db;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -33,25 +35,13 @@ public class PracticeDataSource {
     //---------------------------------
 
     // INSERT
-    public void insertEntry(SQLiteDatabase db, String name, String description) {
+    public void insertEntry(String name, String description) {
         mDatabase.beginTransaction();
 
         Log.d("RCK", "Inside insertEntry()");
 
-        final String Insert_Data="INSERT INTO TABLE_NAME VALUES(SampleTitle, SampleDescription)";
-        db.execSQL(Insert_Data);
-        /*
-        try {
-            for (Forecast.HourData hour : forecast.hourly.data) {
-                ContentValues values = new ContentValues();
-                values.put(ForecastHelper.COLUMN_TEMPERATURE, hour.temperature);
-                mDatabase.insert(ForecastHelper.TABLE_TEMPERATURES, null, values);
-            }
-            mDatabase.setTransactionSuccessful();
-        }
-        finally {
-            mDatabase.endTransaction();
-        }*/
+        final String Insert_Data="INSERT INTO " + PracticeHelper.TABLE_NAME + " (" + PracticeHelper.COLUMN_1 + ", " + PracticeHelper.COLUMN_2 + ") VALUES('" + name + "', '" + description + "');";
+        mDatabase.execSQL(Insert_Data);
 
         mDatabase.endTransaction();
 
@@ -71,44 +61,25 @@ public class PracticeDataSource {
                 null  // orderby
         );
 
+        Log.d("RCK", "dumpCursorToString: " + DatabaseUtils.dumpCursorToString(cursor));
         return cursor;
     }
-
-    // TODO: add more select clauses
-    /*
-    // SELECT WHERE
-    public Cursor selectTempsGreaterThan(String minTemp) {
-        String whereClause = ForecastHelper.COLUMN_TEMPERATURE + " > ?";
-
-        Cursor cursor = mDatabase.query(
-                ForecastHelper.TABLE_TEMPERATURES, // table
-                new String[] { ForecastHelper.COLUMN_TEMPERATURE }, // column names
-                whereClause, // where clause
-                new String[] { minTemp }, // where params
-                null, // groupby
-                null, // having
-                null  // orderby
-        );
-
-        return cursor;
-    }*/
 
     // UPDATE Operations
     // TODO: add update operations
 
     public int updateTemperature(String newText) {
         Log.d("RCK", "Inside updateTemperature()");
-        /*
+
         ContentValues values = new ContentValues();
-        values.put(ForecastHelper.COLUMN_TEMPERATURE, newTemp);
+        values.put(PracticeHelper.COLUMN_1, newText);
         int rowsUpdated = mDatabase.update(
-                ForecastHelper.TABLE_TEMPERATURES, // table
+                PracticeHelper.TABLE_NAME, // table
                 values, // values
                 null,   // where clause
                 null    // where params
-        );*/
+        );
 
-        int rowsUpdated = 1; // TODO: delete this when the update works properly
         return rowsUpdated;
     }
 
