@@ -35,10 +35,10 @@ public class DialogShowNote extends DialogFragment {
         Log.d("RCK", "mNote.getTitle() = " + mNote.getTitle());
         Log.d("RCK", "mNote.getDescription() = " + mNote.getDescription());
 
-        txtTitle.setText("This is a test title");
-        txtDescription.setText("This is a test description");
-        //txtTitle.setText(mNote.getTitle());
-        //txtDescription.setText(mNote.getDescription());
+        //txtTitle.setText("This is a test title");
+        //txtDescription.setText("This is a test description");
+        txtTitle.setText(mNote.getTitle());
+        txtDescription.setText(mNote.getDescription());
 
         // --------
 
