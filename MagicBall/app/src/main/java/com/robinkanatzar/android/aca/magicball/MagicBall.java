@@ -5,26 +5,26 @@ import java.util.Random;
 public class MagicBall {
 
     private String[] mMagicBallMessages = {
-            "message 1",
-            "message 2",
-            "message 3",
-            "message 4",
-            "message 5",
-            "message 6",
-            "message 7",
-            "message 8",
-            "message 9",
-            "message 10",
-            "message 11",
-            "message 12",
-            "message 13",
-            "message 14",
-            "message 15",
-            "message 16",
-            "message 17",
-            "message 18",
-            "message 19",
-            "message 20"
+            "It is certain",
+            "It is decidely so",
+            "Without a doubt",
+            "Yes, definitely",
+            "You may rely on it",
+            "As I see it, yes",
+            "Most likely",
+            "Outlook good",
+            "Yes",
+            "Signs point to yes",
+            "Reply hazy try again",
+            "Ask again later",
+            "Better not tell you now",
+            "Cannot predict now",
+            "Concentrate and ask again",
+            "Don't count on it",
+            "My reply is no",
+            "My sources say no",
+            "Outlook not so good",
+            "Very doubtful"
     };
 
     public String getMessage() {

@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private MagicBall mMagicBallMessage = new MagicBall();
+    private Dice mDiceRoll = new Dice();
 
     // establish buttons and text views
     Button mButtonRandomMessage;
@@ -41,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
         } else if (view.getId() == R.id.buttonRollDice) {
             // if the roll dice button was clicked...
             // display a number in the roll dice text view
-            mTextViewRollDice.setText("Test message for roll dice text view");
+            int roll = mDiceRoll.getDiceRoll();
+            mTextViewRollDice.setText("You rolled a total of: " + roll);
         }
     }
 }
