@@ -1,8 +1,11 @@
 package com.robinkanatzar.android.aca.notetoself;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +24,24 @@ public class MainActivity extends AppCompatActivity {
 
     // new member variable mNoteAdapter
     private NoteAdapter mNoteAdapter;
+    private boolean mSound;
+    private int mAnimOption;
+    private SharedPreferences mPrefs;
+
+    protected void onPause() {
+        super.onPause();
+
+        mNoteAdapter.saveNotes();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        mPrefs = getSharedPreferences("Note to self", MODE_PRIVATE);
+        mSound  = mPrefs.getBoolean("sound", true);
+        mAnimOption = mPrefs.getInt("anim option", SettingsActivity.FAST);
+    }
 
 
     @Override
@@ -99,18 +120,52 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+
         return super.onOptionsItemSelected(item);
     }
 
+
     public class NoteAdapter extends BaseAdapter {
 
+        private JSONSerializer mSerializer;
         List<Note> noteList = new ArrayList<Note>();
+
+        public NoteAdapter(){
+
+            mSerializer = new JSONSerializer("NoteToSelf.json",
+                    MainActivity.this.getApplicationContext());
+
+            try {
+                noteList = mSerializer.load();
+            } catch (Exception e) {
+                noteList = new ArrayList<Note>();
+                Log.e("Error loading notes: ", "", e);
+            }
+
+        }
+
+        public void saveNotes(){
+            try{
+                mSerializer.save(noteList);
+
+            }catch(Exception e){
+                Log.e("Error Saving Notes","", e);
+            }
+        }
 
         @Override
         public int getCount() {
             // returns the size of the note list as an integer
             return noteList.size();
         }
+
 
         @Override
         public Note getItem(int whichItem) {
@@ -232,5 +287,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
 
 }

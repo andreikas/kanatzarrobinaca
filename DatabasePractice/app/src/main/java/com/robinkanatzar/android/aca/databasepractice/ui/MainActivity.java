@@ -71,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("RCK", "dumpCursorToString in Main Activity: " + DatabaseUtils.dumpCursorToString(cursor));
 
                 // TODO: print the select on the screen
+                // TODO
+                displayListView(); // call the method to display the list view
             }
         });
 
@@ -115,6 +117,11 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
 
         mDataSource.close();
+    }
+
+    private void displayListView() {
+        // displays the sqlite database in the list view
+
     }
 
 }
