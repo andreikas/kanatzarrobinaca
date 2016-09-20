@@ -20,8 +20,8 @@ import java.util.ArrayList;
 
 public class ViewForecastActivity extends ListActivity {
 
-    protected ForecastDataSource mDataSource;
-    protected ArrayList<BigDecimal> mTemperatures;
+    protected ForecastDataSource mDataSource; // declare a datasource variable
+    protected ArrayList<BigDecimal> mTemperatures; // declare an array list for the temperatures
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,8 @@ public class ViewForecastActivity extends ListActivity {
 
         configureActionBar();
 
-        mDataSource = new ForecastDataSource(ViewForecastActivity.this);
-        mTemperatures = new ArrayList<BigDecimal>();
+        mDataSource = new ForecastDataSource(ViewForecastActivity.this); // set data source to data source in this activity
+        mTemperatures = new ArrayList<BigDecimal>(); // set array list to a new array list
     }
 
     @Override
@@ -39,7 +39,7 @@ public class ViewForecastActivity extends ListActivity {
         super.onResume();
         mDataSource.open();
 
-        Cursor cursor = mDataSource.selectAllTemperatures();
+        Cursor cursor = mDataSource.selectAllTemperatures(); // add data to cursor with selectAllTemperatures
         updateList(cursor);
     }
 
