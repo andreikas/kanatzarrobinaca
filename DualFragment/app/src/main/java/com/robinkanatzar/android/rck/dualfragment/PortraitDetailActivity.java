@@ -35,4 +35,5 @@ public class PortraitDetailActivity extends AppCompatActivity {
         }
     }
 
+
 }

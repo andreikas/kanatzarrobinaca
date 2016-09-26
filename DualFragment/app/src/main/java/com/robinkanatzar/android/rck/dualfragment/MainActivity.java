@@ -14,6 +14,22 @@ public class MainActivity extends ActionBarActivity implements ActivityComs {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dualfragment);
 
+        // Get a fragment manager
+        FragmentManager fManager = getFragmentManager();
+
+        // Create a new fragment using the manager
+        // Passing in the id of the layout to hold it
+        Fragment frag = fManager.findFragmentById(R.id.listFragmentHolder);
+
+        // Check that the fragment has not already been initialized
+        if (frag == null) {
+            frag = new AddressListFragment();
+            fManager.beginTransaction()
+                    .add(R.id.listFragmentHolder, frag)
+                    .commit();
+        }
+
+
     }
 
     public void onListItemSelected(int position) {
