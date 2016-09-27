@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Note to self</string>
-    <string name="action_settings">ActionSettings</string>
+    <string name="app_name">Note to Self</string>
+    <string name="action_settings">Change Settings</string>
     <string name="action_add_file">ActionAddFile</string>
     <string name="anims_title">Animation Speed</string>
     <string name="sound_textbox">On or Off</string>
