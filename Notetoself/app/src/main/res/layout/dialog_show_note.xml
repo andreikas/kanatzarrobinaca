@@ -99,5 +99,6 @@
         android:id="@+id/imageViewShowImage"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:adjustViewBounds="true"/>
+        android:adjustViewBounds="true"
+        android:src="@mipmap/ic_launcher"/>
 </RelativeLayout>

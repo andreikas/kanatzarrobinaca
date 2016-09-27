@@ -14,14 +14,14 @@ public class Note {
     private boolean mTodo;
     private boolean mImportant;
     private Bitmap mImage; // todo new
-    private String mImageAsString; // todo new
+    //private String mImageAsString; // todo new
 
     private static final String JSON_TITLE = "title";
     private static final String JSON_DESCRIPTION = "description";
     private static final String JSON_IDEA = "idea" ;
     private static final String JSON_TODO = "todo";
     private static final String JSON_IMPORTANT = "important";
-    private static final String JSON_IMAGE_AS_STRING = "image"; // todo new
+    //private static final String JSON_IMAGE_AS_STRING = "image"; // todo new
 
 
     // Constructor
@@ -33,7 +33,7 @@ public class Note {
         mIdea = jo.getBoolean(JSON_IDEA);
         mTodo = jo.getBoolean(JSON_TODO);
         mImportant = jo.getBoolean(JSON_IMPORTANT);
-        mImageAsString = jo.getString(JSON_IMAGE_AS_STRING); // todo new
+        //mImageAsString = jo.getString(JSON_IMAGE_AS_STRING); // todo new
     }
     // Now we must provide an empty default constructor
     // for when we create a Note as we provide a
@@ -51,7 +51,7 @@ public class Note {
         jo.put(JSON_IDEA, mIdea);
         jo.put(JSON_TODO, mTodo);
         jo.put(JSON_IMPORTANT, mImportant);
-        jo.put(JSON_IMAGE_AS_STRING, mImageAsString); // todo new
+        //jo.put(JSON_IMAGE_AS_STRING, mImageAsString); // todo new
 
         return jo;
     }
