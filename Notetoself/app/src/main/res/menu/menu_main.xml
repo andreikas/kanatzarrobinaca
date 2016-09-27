@@ -25,7 +25,7 @@
           android:showAsAction="never" />
     <!-- Our add icon will have its own button -->
     <item android:id="@+id/action_add"
-          android:icon="@drawable/ic_add_black_24dp"
+          android:icon="@drawable/ic_add_white_24dp"
           android:title="@string/action_add"
           app:showAsAction="always" />
 

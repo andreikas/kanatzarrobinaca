@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         imageView = (ImageView)this.findViewById(R.id.imageView1);
         Button photoButton = (Button) this.findViewById(R.id.button1);
+
         photoButton.setOnClickListener(new View.OnClickListener() {
 
             @Override

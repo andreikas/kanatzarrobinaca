@@ -40,7 +40,7 @@
         android:id="@+id/txtTitle"
         android:layout_below="@+id/imageViewImportant"
         android:layout_centerHorizontal="true"
-        android:textColor="#8C7735"/>
+        android:textColor="#000000"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,16 +50,46 @@
         android:layout_below="@+id/txtTitle"
         android:layout_toRightOf="@+id/imageViewImportant"
         android:layout_toEndOf="@+id/imageViewImportant"
-        android:textColor="#8C7735"/>
+        android:textColor="#000000"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ok_button"
         android:id="@+id/btnOK"
+        android:background="#90A05C"
+        android:textColor="#FFFFFF"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EDIT"
+        android:id="@+id/buttonEditNote"
+        android:background="#F1A25F"
+        android:textColor="#FFFFFF"
+        android:layout_alignTop="@+id/btnOK"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView4"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/pineapple"
+        android:alpha="0.2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SHARE"
+        android:id="@+id/buttonShare"
+        android:layout_alignBottom="@+id/imageView4"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="33dp"
-        android:background="#FFDBD2B5"
-        android:textColor="#8C7735"/>
+        android:background="#DBD2B5"/>
 </RelativeLayout>

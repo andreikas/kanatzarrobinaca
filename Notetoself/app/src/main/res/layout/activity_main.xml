@@ -18,4 +18,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/pineapple"
+        android:alpha="0.2"/>
 </RelativeLayout>

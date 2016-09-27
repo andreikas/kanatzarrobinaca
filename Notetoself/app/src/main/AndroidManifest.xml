@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.robinkanatzar.android.aca.notetoself">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera2" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SettingsActivity"
-                  android:parentActivityName=".MainActivity" >
+                  android:parentActivityName=".MainActivity"
+                  android:theme="@style/AppTheme">
         </activity>
     </application>
 

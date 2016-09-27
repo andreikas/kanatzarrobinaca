@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DialogShowNote extends DialogFragment {
 
@@ -28,6 +29,8 @@ public class DialogShowNote extends DialogFragment {
 
         TextView txtTitle = (TextView) dialogView.findViewById(R.id.txtTitle);
         TextView txtDescription = (TextView) dialogView.findViewById(R.id.txtDescription);
+        Button btnEdit = (Button) dialogView.findViewById(R.id.buttonEditNote); // TODO new
+        Button btnShare = (Button) dialogView.findViewById(R.id.buttonShare); // TODO new
 
         // --------
         // RCK Thurs
@@ -63,8 +66,9 @@ public class DialogShowNote extends DialogFragment {
 
         Button btnOK = (Button) dialogView.findViewById(R.id.btnOK);
 
-        builder.setView(dialogView).setMessage("Your Note"); // this is cut off on the pop up window
+        //builder.setView(dialogView).setMessage("Your Note"); // this is cut off on the pop up window
 
+        builder.setView(dialogView);
         btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,8 +76,25 @@ public class DialogShowNote extends DialogFragment {
             }
         });
 
-        return builder.create();
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO: call new fragment when edit button clicked
+                Toast.makeText(getActivity(), "Clicked on edit note button", Toast.LENGTH_SHORT).show();
+            }
+        });
 
+        btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO: call something to share the note via e-mail or text
+                Toast.makeText(getActivity(), "Clicked on share button", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+        return builder.create();
 
     }
 

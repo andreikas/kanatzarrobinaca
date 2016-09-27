@@ -145,7 +145,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int whichItem, long id) {
-                // TODO: come back her to figure this method out
                 /*
                   Create  a temporary Note
                   Which is a reference to the Note
