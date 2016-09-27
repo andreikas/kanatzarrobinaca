@@ -327,7 +327,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (!tempNote.isIdea()){
                 //ivIdea.setVisibility(View.GONE);
-                // TODO: null pointer exception, function on a null object
+
                 ivIdea.setVisibility(View.INVISIBLE);
                 Log.d("RCK", "Inside !tempNote.isIdea(), hiding idea icon");
                 Log.d("RCK", "Inside !tempNote.isIdea(), !tempNote.isIdea() = " + !tempNote.isIdea());

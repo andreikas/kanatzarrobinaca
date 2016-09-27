@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class DialogShowNote extends DialogFragment {
 
     private Note mNote;
+    ImageView mImage;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class DialogShowNote extends DialogFragment {
         TextView txtDescription = (TextView) dialogView.findViewById(R.id.txtDescription);
         Button btnEdit = (Button) dialogView.findViewById(R.id.buttonEditNote); // TODO new
         Button btnShare = (Button) dialogView.findViewById(R.id.buttonShare); // TODO new
+        mImage = (ImageView) dialogView.findViewById(R.id.imageViewShowImage); // TODO new
 
         // --------
         // RCK Thurs
@@ -42,6 +44,7 @@ public class DialogShowNote extends DialogFragment {
         //txtDescription.setText("This is a test description");
         txtTitle.setText(mNote.getTitle());
         txtDescription.setText(mNote.getDescription());
+        mImage.setImageBitmap(mNote.getImage()); // todo new
 
         // --------
 
