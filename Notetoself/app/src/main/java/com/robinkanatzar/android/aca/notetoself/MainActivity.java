@@ -114,18 +114,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         // define mNoteAdapter as a new instance of NoteAdapter
-        mNoteAdapter = new NoteAdapter();
+        mNoteAdapter = new NoteAdapter(); // TODO 1
 
         // create a new ListView and link it to the listView on the screen
-        ListView listNote = (ListView) findViewById(R.id.listView);
+        ListView listNote = (ListView) findViewById(R.id.listView); // TODO 4
 
         // set the adapter for the listView
-        listNote.setAdapter(mNoteAdapter);
+        listNote.setAdapter(mNoteAdapter); // TODO 5
 
         // So we can long click it
-        listNote.setLongClickable(true);
+        listNote.setLongClickable(true); // TODO 6
 
-        // Now to detect long clicks and delete the note
+        // Now to detect long clicks and delete the note // TODO 7
         listNote.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
             public boolean onItemLongClick(AdapterView<?> adapter, View view,
@@ -141,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the on click listener for the listView
         // Handle clicks on the ListView
+        // TODO 8
         listNote.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -155,15 +156,17 @@ public class MainActivity extends AppCompatActivity {
                     mSp.play(mIdBeep, 1, 1, 0, 0, 1);
                 }
 
-                Note tempNote = mNoteAdapter.getItem(whichItem);
+                // whichItem is the id number for what was clicked
+                Note tempNote = mNoteAdapter.getItem(whichItem); // TODO 9
 
                 // Create a new dialog window
-                DialogShowNote dialog = new DialogShowNote();
+                DialogShowNote dialog = new DialogShowNote(); // TODO 12
+
                 // Send in a reference to the note to be shown
-                dialog.sendNoteSelected(tempNote);
+                dialog.sendNoteSelected(tempNote); // TODO 14
 
                 // Show the dialog window with the note in it
-                dialog.show(getFragmentManager(), "");
+                dialog.show(getFragmentManager(), ""); // TODO 16
 
             }
         });
@@ -171,18 +174,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createNewNote(Note n){
-
+        // TODO 21
         // add a note n to the note adapter
         mNoteAdapter.addNote(n);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
         return true;
     }
 
@@ -198,11 +198,11 @@ public class MainActivity extends AppCompatActivity {
         // if the id is the action_add button (plus)
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_add) {
-
             // when the plus is clicked...
             // create a new instance of DialogNewNote
-            DialogNewNote dialog = new DialogNewNote();
-            dialog.show(getFragmentManager(), "");
+            // TODO 18
+            DialogNewNote dialog = new DialogNewNote(); // calls default constructor in DialogNewNote
+            dialog.show(getFragmentManager(), ""); // calls onCreateDialog in DialogNewNote
             return true;
 
         }
@@ -214,7 +214,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -222,8 +221,9 @@ public class MainActivity extends AppCompatActivity {
     public class NoteAdapter extends BaseAdapter {
 
         private JSONSerializer mSerializer;
-        List<Note> noteList = new ArrayList<Note>();
+        List<Note> noteList = new ArrayList<Note>(); // TODO 11
 
+        // TODO 2
         public NoteAdapter(){
 
             mSerializer = new JSONSerializer("NoteToSelf.json",
@@ -266,7 +266,8 @@ public class MainActivity extends AppCompatActivity {
         public Note getItem(int whichItem) {
             // pass in the integer for the item
             // return the Note object
-            return noteList.get(whichItem);
+            // TODO 10
+            return noteList.get(whichItem); // get = built in fn
         }
 
         @Override
@@ -301,7 +302,6 @@ public class MainActivity extends AppCompatActivity {
             ImageView ivTodo = (ImageView) view.findViewById(R.id.imageViewTodo);
             ImageView ivIdea = (ImageView) view.findViewById(R.id.imageViewIdea);
 
-            // Hide any ImageView widgets that are not relevant
             Note tempNote = noteList.get(whichItem);
 
             // To animate or not to animate
@@ -312,30 +312,6 @@ public class MainActivity extends AppCompatActivity {
             }else{
                 view.setAnimation(mFadeIn);
             }
-
-
-            /* RCK Friday commented out
-            if (!tempNote.isImportant()){
-                //ivImportant.setVisibility(View.GONE);
-                ivImportant.setVisibility(View.INVISIBLE);
-                Log.d("RCK", "Inside !tempNote.isImportant(), hiding important icon");
-            }
-
-            if (!tempNote.isTodo()){
-                //ivTodo.setVisibility(View.GONE);
-                ivTodo.setVisibility(View.INVISIBLE);
-                Log.d("RCK", "Inside !tempNote.isTodo(), hiding TD icon");
-            }
-
-            if (!tempNote.isIdea()){
-                //ivIdea.setVisibility(View.GONE);
-
-                ivIdea.setVisibility(View.INVISIBLE);
-                Log.d("RCK", "Inside !tempNote.isIdea(), hiding idea icon");
-                Log.d("RCK", "Inside !tempNote.isIdea(), !tempNote.isIdea() = " + !tempNote.isIdea());
-            } */
-
-            // RCK Friday
 
             // Set all icons to visible
             ivImportant.setVisibility(View.VISIBLE);
@@ -375,8 +351,6 @@ public class MainActivity extends AppCompatActivity {
                 ivIdea.setVisibility(View.INVISIBLE);
             }
 
-            // END RCK Friday
-
             // Add the text to the heading and description
             txtTitle.setText(tempNote.getTitle());
             txtDescription.setText(tempNote.getDescription());
@@ -385,9 +359,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void addNote(Note n){
-
+            // TODO 22
             noteList.add(n);
-            notifyDataSetChanged();
+            notifyDataSetChanged(); // save changes to note list?
 
         }
 

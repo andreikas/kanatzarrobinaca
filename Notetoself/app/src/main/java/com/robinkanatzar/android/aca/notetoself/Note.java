@@ -1,6 +1,8 @@
 package com.robinkanatzar.android.aca.notetoself;
 
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import org.json.JSONException;
@@ -14,14 +16,14 @@ public class Note {
     private boolean mTodo;
     private boolean mImportant;
     private Bitmap mImage; // todo new
+    private String mImageString;
 
     private static final String JSON_TITLE = "title";
     private static final String JSON_DESCRIPTION = "description";
     private static final String JSON_IDEA = "idea" ;
     private static final String JSON_TODO = "todo";
     private static final String JSON_IMPORTANT = "important";
-    //private static final Bitmap JSON_BITMAP = "#";
-
+    private String JSON_IMAGE_STRING;
 
     // Constructor
     // Only used when new is called with a JSONObject
@@ -32,9 +34,10 @@ public class Note {
         mIdea = jo.getBoolean(JSON_IDEA);
         mTodo = jo.getBoolean(JSON_TODO);
         mImportant = jo.getBoolean(JSON_IMPORTANT);
-
-        //mImageAsString = jo.getString(JSON_IMAGE_AS_STRING); // todo new
+        // TODO Tuesday: call method to change string to bitmap
+        //mImage = getBitmapFromString(mImageString);
     }
+
     // Now we must provide an empty default constructor
     // for when we create a Note as we provide a
     // specialized constructor that must be used.
@@ -51,13 +54,45 @@ public class Note {
         jo.put(JSON_IDEA, mIdea);
         jo.put(JSON_TODO, mTodo);
         jo.put(JSON_IMPORTANT, mImportant);
-        //jo.put(JSON_IMAGE_AS_STRING, mImageAsString); // todo new
+
+        // TODO Tuesday: call method to convert bitmap to string
+        Log.d("RCK", "In Note class, inside convertToJSON()");
+
+        mImageString = getStringFromBitmap(mImage);
+        Log.d("RCK", "mImageString = " + mImageString);
+
+        //jo.put(JSON_IMAGE_STRING,mImageString);
 
         return jo;
     }
 
+    // TODO Tuesday: create method to convert string to bitmap
+    public Bitmap getBitmapFromString(String jsonString) {
+        Log.d("RCK", "In Note class, inside getBitmapFromString()");
+        /*
+        * This Function converts the String back to Bitmap
+        * */
+        //byte[] decodedString = Base64.decode(mImage, Base64.DEFAULT);
+        //Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        //return decodedByte;
+
+        return null;
+    }
+
+    // TODO Tuesday: create method to convert bitmap to string
+    public String getStringFromBitmap(Bitmap bitmapPicture) {
+        Log.d("RCK", "Inside getStringFromBitmap");
+
+        if (bitmapPicture == null) {//bitmapPicture is null
+            // set default value to ic_launcher
+            bitmapPicture = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.pineapple);
+            Log.d("RCK", "The image is null!");
+        }
 
 
+        String testString = "this is a test string";
+        return testString;
+    }
 
     public String getTitle() {
         return mTitle;
@@ -76,22 +111,22 @@ public class Note {
     }
 
     public boolean isIdea() {
-        Log.d("RCK", "inside public boolean isIdea, mIdea returned = " + mIdea);
+        //Log.d("RCK", "inside public boolean isIdea, mIdea returned = " + mIdea);
         return mIdea;
     }
 
     public void setIdea(boolean idea) {
-        Log.d("RCK", "inside public void setIdea, idea set = " + idea);
+        //Log.d("RCK", "inside public void setIdea, idea set = " + idea);
         mIdea = idea;
     }
 
     public boolean isTodo() {
-        Log.d("RCK", "inside public boolean isTodo, mTodo returned = " + mTodo);
+        //Log.d("RCK", "inside public boolean isTodo, mTodo returned = " + mTodo);
         return mTodo;
     }
 
     public void setTodo(boolean todo) {
-        Log.d("RCK", "inside public void setTodo, todo set = " + todo );
+        //Log.d("RCK", "inside public void setTodo, todo set = " + todo );
         mTodo = todo;
     }
 
@@ -105,11 +140,11 @@ public class Note {
 
     public void setImage(Bitmap photo) {
         mImage = photo;
-        Log.d("RCK", "successfully set image");
+        Log.d("RCK", "Inside setImage");
     }
 
     public Bitmap getImage() {
-        Log.d("RCK", "successfully get image");
+        Log.d("RCK", "Inside getImage");
         return mImage;
     }
 }

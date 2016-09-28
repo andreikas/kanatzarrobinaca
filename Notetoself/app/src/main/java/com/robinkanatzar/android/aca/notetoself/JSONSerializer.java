@@ -24,6 +24,7 @@ public class JSONSerializer {
 
     // All the rest of the code for the class goes here
 
+    // TODO 3
     public JSONSerializer(String fn, Context con){
         mFilename = fn;
         mContext = con;
@@ -33,6 +34,7 @@ public class JSONSerializer {
             throws IOException, JSONException {
 
         // Make an array in JSON format
+        // TODO 23
         JSONArray jArray = new JSONArray();
 
         // And load it with the notes
@@ -44,12 +46,10 @@ public class JSONSerializer {
         try {
             OutputStream out = mContext.openFileOutput
                     (mFilename, mContext.MODE_PRIVATE);
-
             writer = new OutputStreamWriter(out);
             writer.write(jArray.toString());
         } finally {
             if (writer != null) {
-
                 writer.close();
             }
         }
