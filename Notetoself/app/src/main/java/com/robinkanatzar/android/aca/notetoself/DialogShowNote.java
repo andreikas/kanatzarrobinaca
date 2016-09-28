@@ -3,7 +3,10 @@ package com.robinkanatzar.android.aca.notetoself;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,7 +42,13 @@ public class DialogShowNote extends DialogFragment {
         // set values of each field
         txtTitle.setText(mNote.getTitle());
         txtDescription.setText(mNote.getDescription());
-        mImage.setImageBitmap(mNote.getImage());
+        // TODO ***
+        //mImage.setImageBitmap(mNote.getImage()); // TODO remove, replace with getImageString()
+
+        Bitmap myBitmapAgain = decodeBase64(mNote.getImageString());
+        mImage.setImageBitmap(myBitmapAgain);
+
+        // TODO ***
 
         // set values of the icons for important, to do, and idea
         ImageView ivImportant = (ImageView) dialogView.findViewById(R.id.imageViewImportant);
@@ -89,6 +98,12 @@ public class DialogShowNote extends DialogFragment {
 
         return builder.create();
 
+    }
+
+    public static Bitmap decodeBase64(String input)
+    {
+        byte[] decodedBytes = Base64.decode(input, 0);
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
     }
 
     public void sendEmail() {

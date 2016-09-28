@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -18,12 +19,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
+
 public class DialogNewNote extends DialogFragment{
 
     private static final int CAMERA_REQUEST = 123; // TODO new
     private ImageView imageViewConfirm; // TODO new
     private static final int MY_PERMISSIONS_REQUEST_CAMERA = 0;
     Bitmap photo;
+    String mImageString;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -44,6 +48,7 @@ public class DialogNewNote extends DialogFragment{
         Button btnOK = (Button) dialogView.findViewById(R.id.btnOK);
         Button btnAddPic = (Button) dialogView.findViewById(R.id.buttonAddPic); // TODO new
         imageViewConfirm = (ImageView) dialogView.findViewById(R.id.imageViewPicConfirm); // TODO new
+
 
         // set the confirm image to invisible by default, so does not appear if no picture added
         imageViewConfirm.setVisibility(View.INVISIBLE);
@@ -76,8 +81,9 @@ public class DialogNewNote extends DialogFragment{
                 newNote.setTodo(checkBoxTodo.isChecked());
                 newNote.setImportant(checkBoxImportant.isChecked());
 
-                // TODO: convert image to string here when saved, then send the string in setImage
-                newNote.setImage(photo);
+                // TODO: send image as string
+                newNote.setImageString(mImageString);
+
 
                 // Get a reference to MainActivity
                 MainActivity callingActivity = (MainActivity) getActivity();
@@ -143,8 +149,20 @@ public class DialogNewNote extends DialogFragment{
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-            photo = (Bitmap) data.getExtras().get("data"); // grabs the image from the intent
-            imageViewConfirm.setImageBitmap(photo); // set image view to the image
-            imageViewConfirm.setVisibility(View.VISIBLE); // set image view to visible
+        photo = (Bitmap) data.getExtras().get("data"); // grabs the image from the intent
+        imageViewConfirm.setImageBitmap(photo); // set image view to the image
+        imageViewConfirm.setVisibility(View.VISIBLE); // set image view to visible
+
+        String myBase64Image = encodeToBase64(photo, Bitmap.CompressFormat.JPEG, 100);
+        mImageString = myBase64Image;
+        //Log.d("RCK", "bitmap as string: " + myBase64Image);
+
+    }
+
+    public static String encodeToBase64(Bitmap image, Bitmap.CompressFormat compressFormat, int quality)
+    {
+        ByteArrayOutputStream byteArrayOS = new ByteArrayOutputStream();
+        image.compress(compressFormat, quality, byteArrayOS);
+        return Base64.encodeToString(byteArrayOS.toByteArray(), Base64.DEFAULT);
     }
 }

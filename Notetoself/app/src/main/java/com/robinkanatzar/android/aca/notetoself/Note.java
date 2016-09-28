@@ -1,8 +1,6 @@
 package com.robinkanatzar.android.aca.notetoself;
 
-import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import org.json.JSONException;
@@ -23,7 +21,7 @@ public class Note {
     private static final String JSON_IDEA = "idea" ;
     private static final String JSON_TODO = "todo";
     private static final String JSON_IMPORTANT = "important";
-    private String JSON_IMAGE_STRING;
+    private String JSON_IMAGE_STRING = "";
 
     // Constructor
     // Only used when new is called with a JSONObject
@@ -36,6 +34,7 @@ public class Note {
         mImportant = jo.getBoolean(JSON_IMPORTANT);
         // TODO Tuesday: call method to change string to bitmap
         //mImage = getBitmapFromString(mImageString);
+        mImageString = jo.getString(JSON_IMAGE_STRING);
     }
 
     // Now we must provide an empty default constructor
@@ -58,41 +57,11 @@ public class Note {
         // TODO Tuesday: call method to convert bitmap to string
         Log.d("RCK", "In Note class, inside convertToJSON()");
 
-        mImageString = getStringFromBitmap(mImage);
-        Log.d("RCK", "mImageString = " + mImageString);
-
-        //jo.put(JSON_IMAGE_STRING,mImageString);
+        jo.put(JSON_IMAGE_STRING, mImageString);
 
         return jo;
     }
 
-    // TODO Tuesday: create method to convert string to bitmap
-    public Bitmap getBitmapFromString(String jsonString) {
-        Log.d("RCK", "In Note class, inside getBitmapFromString()");
-        /*
-        * This Function converts the String back to Bitmap
-        * */
-        //byte[] decodedString = Base64.decode(mImage, Base64.DEFAULT);
-        //Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-        //return decodedByte;
-
-        return null;
-    }
-
-    // TODO Tuesday: create method to convert bitmap to string
-    public String getStringFromBitmap(Bitmap bitmapPicture) {
-        Log.d("RCK", "Inside getStringFromBitmap");
-
-        if (bitmapPicture == null) {//bitmapPicture is null
-            // set default value to ic_launcher
-            bitmapPicture = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.pineapple);
-            Log.d("RCK", "The image is null!");
-        }
-
-
-        String testString = "this is a test string";
-        return testString;
-    }
 
     public String getTitle() {
         return mTitle;
@@ -146,5 +115,13 @@ public class Note {
     public Bitmap getImage() {
         Log.d("RCK", "Inside getImage");
         return mImage;
+    }
+
+    public void setImageString(String string) {
+        mImageString = string;
+    }
+
+    public String getImageString() {
+        return mImageString;
     }
 }

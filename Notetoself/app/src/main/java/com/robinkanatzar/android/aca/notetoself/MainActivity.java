@@ -179,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
         mNoteAdapter.addNote(n);
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
