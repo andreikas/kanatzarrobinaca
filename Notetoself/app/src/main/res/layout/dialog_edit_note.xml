@@ -1,7 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:background="#F2ECDC">
 
-</LinearLayout>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTitle2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="35dp"
+        android:textColor="#000000"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editDescription2"
+        android:layout_below="@+id/editTitle2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="35dp"
+        android:inputType="textMultiLine"
+        android:textColor="#000000"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/idea_checkbox"
+        android:id="@+id/checkBoxIdea2"
+        android:layout_below="@+id/editDescription2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="35dp"
+        android:textColor="#000000"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/todo_checkbox"
+        android:id="@+id/checkBoxTodo2"
+        android:layout_below="@+id/checkBoxIdea2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="35dp"
+        android:textColor="#000000"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/important_checkbox"
+        android:id="@+id/checkBoxImportant2"
+        android:layout_below="@+id/checkBoxTodo2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="35dp"
+        android:textColor="#000000"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel_button"
+        android:id="@+id/btnCancel2"
+        android:textColor="#FFFFFF"
+        android:background="#B72C25"
+        android:layout_below="@+id/checkBoxImportant2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ok_button"
+        android:id="@+id/btnOK2"
+        android:layout_alignTop="@+id/btnCancel2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#FFFFFF"
+        android:background="#90A05C"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Picture"
+        android:id="@+id/buttonAddPic2"
+        android:background="#F1A25F"
+        android:textColor="#FFFFFF"
+        android:layout_alignTop="@+id/btnOK2"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/pineapple"
+        android:alpha="0.2"
+        android:layout_alignBottom="@+id/btnCancel2"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageViewPicConfirm2"
+        android:src="@mipmap/ic_launcher"
+        android:layout_alignTop="@+id/checkBoxImportant2"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

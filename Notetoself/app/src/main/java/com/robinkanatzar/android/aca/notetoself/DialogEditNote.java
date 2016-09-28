@@ -22,15 +22,15 @@ public class DialogEditNote extends DialogFragment {
         View dialogView = inflater.inflate(R.layout.dialog_edit_note, null);
 
         // TODO: change all to match layout and names on dialog_edit_note
-        final EditText editTitle = (EditText) dialogView.findViewById(R.id.editTitle);
-        final EditText editDescription = (EditText) dialogView.findViewById(R.id.editDescription);
-        final CheckBox checkBoxIdea = (CheckBox) dialogView.findViewById(R.id.checkBoxIdea);
-        final CheckBox checkBoxTodo = (CheckBox) dialogView.findViewById(R.id.checkBoxTodo);
-        final CheckBox checkBoxImportant = (CheckBox) dialogView.findViewById(R.id.checkBoxImportant);
-        Button btnCancel = (Button) dialogView.findViewById(R.id.btnCancel);
-        Button btnOK = (Button) dialogView.findViewById(R.id.btnOK);
-        Button btnChangePic = (Button) dialogView.findViewById(R.id.buttonAddPic);
-        ImageView imageViewPreview = (ImageView) dialogView.findViewById(R.id.imageViewPicConfirm);
+        final EditText editTitle = (EditText) dialogView.findViewById(R.id.editTitle2);
+        final EditText editDescription = (EditText) dialogView.findViewById(R.id.editDescription2);
+        final CheckBox checkBoxIdea = (CheckBox) dialogView.findViewById(R.id.checkBoxIdea2);
+        final CheckBox checkBoxTodo = (CheckBox) dialogView.findViewById(R.id.checkBoxTodo2);
+        final CheckBox checkBoxImportant = (CheckBox) dialogView.findViewById(R.id.checkBoxImportant2);
+        Button btnCancel = (Button) dialogView.findViewById(R.id.btnCancel2);
+        Button btnOK = (Button) dialogView.findViewById(R.id.btnOK2);
+        Button btnChangePic = (Button) dialogView.findViewById(R.id.buttonAddPic2);
+        ImageView imageViewPreview = (ImageView) dialogView.findViewById(R.id.imageViewPicConfirm2);
 
         builder.setView(dialogView);
 
@@ -47,6 +47,7 @@ public class DialogEditNote extends DialogFragment {
             @Override
             public void onClick(View v) {
 
+                /*
                 //TODO change this so it's editing an existing note
                 // Create a new note
                 Note newNote = new Note();
@@ -63,7 +64,7 @@ public class DialogEditNote extends DialogFragment {
                 MainActivity callingActivity = (MainActivity) getActivity();
 
                 // Pass newNote back to MainActivity
-                callingActivity.createNewNote(newNote);
+                callingActivity.createNewNote(newNote);*/
 
                 // Quit the dialog
                 dismiss();

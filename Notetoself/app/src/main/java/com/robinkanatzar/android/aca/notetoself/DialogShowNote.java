@@ -42,13 +42,9 @@ public class DialogShowNote extends DialogFragment {
         // set values of each field
         txtTitle.setText(mNote.getTitle());
         txtDescription.setText(mNote.getDescription());
-        // TODO ***
-        //mImage.setImageBitmap(mNote.getImage()); // TODO remove, replace with getImageString()
 
         Bitmap myBitmapAgain = decodeBase64(mNote.getImageString());
         mImage.setImageBitmap(myBitmapAgain);
-
-        // TODO ***
 
         // set values of the icons for important, to do, and idea
         ImageView ivImportant = (ImageView) dialogView.findViewById(R.id.imageViewImportant);
@@ -83,6 +79,16 @@ public class DialogShowNote extends DialogFragment {
             public void onClick(View view) {
                 // TODO: call new fragment when edit button clicked
                 Toast.makeText(getActivity(), "Clicked on edit note button", Toast.LENGTH_SHORT).show();
+                // TODO *** call new activity
+
+                // Create a new dialog window
+                DialogEditNote dialogEdit = new DialogEditNote();
+
+                // Show the dialog window with the note in it
+                dialogEdit.show(getFragmentManager(), "");
+
+                // Quit the dialog
+                dismiss();
             }
         });
 
