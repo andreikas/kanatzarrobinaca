@@ -21,6 +21,7 @@ public class DialogShowNote extends DialogFragment {
 
     private Note mNote;
     ImageView mImage;
+    //DialogEditNote editDialog;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -43,8 +44,10 @@ public class DialogShowNote extends DialogFragment {
         txtTitle.setText(mNote.getTitle());
         txtDescription.setText(mNote.getDescription());
 
-        Bitmap myBitmapAgain = decodeBase64(mNote.getImageString());
-        mImage.setImageBitmap(myBitmapAgain);
+        if (mNote.getImageString() != null) {
+            Bitmap myBitmapAgain = decodeBase64(mNote.getImageString());
+            mImage.setImageBitmap(myBitmapAgain);
+        }
 
         // set values of the icons for important, to do, and idea
         ImageView ivImportant = (ImageView) dialogView.findViewById(R.id.imageViewImportant);
@@ -78,11 +81,24 @@ public class DialogShowNote extends DialogFragment {
             @Override
             public void onClick(View view) {
                 // TODO: call new fragment when edit button clicked
-                Toast.makeText(getActivity(), "Clicked on edit note button", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Clicked on edit note button", Toast.LENGTH_SHORT).show();
                 // TODO *** call new activity
 
                 // Create a new dialog window
                 DialogEditNote dialogEdit = new DialogEditNote();
+
+                dialogEdit.sendValuesToEditNote(mNote.getTitle(), mNote.getDescription(), mNote.getImageString(), mNote.isImportant(), mNote.isTodo(), mNote.isIdea());
+
+
+                // if title or description is null...
+                String sendTitle = mNote.getTitle();
+                if (sendTitle == null) {
+                    sendTitle = "no title";
+                }
+                String sendDescription = mNote.getDescription();
+                if (sendDescription == null) {
+                    sendDescription = "no description";
+                }
 
                 // Show the dialog window with the note in it
                 dialogEdit.show(getFragmentManager(), "");
