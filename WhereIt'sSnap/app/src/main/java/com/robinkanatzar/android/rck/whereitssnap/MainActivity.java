@@ -5,9 +5,10 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ActionBarActivity implements ActivityComs{
 
 
     private ListView mNavDrawerList;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> mAdapter;
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
+    public DataManager dataManager;
 
 
     @Override
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        dataManager = new DataManager(getApplicationContext());
 
         // We will come back here in a minute!
         mNavDrawerList = (ListView)findViewById(R.id.navList);
@@ -202,4 +205,39 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    // Open ViewFragment with the photo indicated by position
+    public void onTitlesListItemSelected(int position) {
+
+        // Load up the bundle with the row _id
+        Bundle args = new Bundle();
+        args.putInt("Position", position);
+
+        // Create the fragment and add the bundle
+        //ViewFragment fragment = new ViewFragment();
+        Fragment fragment = new Fragment();
+        fragment.setArguments(args);
+
+        // Start the fragment
+        if (fragment != null) {
+            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.fragmentHolder, fragment, "VIEW").commit();
+
+            // update selected item and title, then close the drawer
+            mNavDrawerList.setItemChecked(1, true);
+            mNavDrawerList.setSelection(1);
+            //setTitle(navMenuTitles[position]);
+            mDrawerLayout.closeDrawer(mNavDrawerList);
+        } else {
+            // error in creating fragment
+            Log.e("MainActivity", "Error in creating fragment");
+        }
+
+    }
+
+    @Override
+    public void onTagsListItemSelected(String tag) {
+
+    }
+
 }
