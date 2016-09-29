@@ -3,6 +3,7 @@ package com.robinkanatzar.android.aca.notetoself;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -115,6 +116,9 @@ public class DialogShowNote extends DialogFragment {
                 // TODO: call something to share the note via e-mail or text
                 Toast.makeText(getActivity(), "Clicked on share button", Toast.LENGTH_SHORT).show();
                 sendEmail();
+
+                // quit the dialog
+                dismiss();
             }
         });
 
@@ -131,7 +135,18 @@ public class DialogShowNote extends DialogFragment {
     public void sendEmail() {
         Log.d("RCK", "Inside sendEmail method");
 
+        String subject = mNote.getTitle();
+        String message = "Title: " + mNote.getTitle() + "\nDescription: " + mNote.getDescription();
 
+        Intent email = new Intent(Intent.ACTION_SEND);
+        //email.putExtra(Intent.EXTRA_EMAIL, new String[] { to });
+        email.putExtra(Intent.EXTRA_SUBJECT, subject);
+        email.putExtra(Intent.EXTRA_TEXT, message);
+
+        // need this to prompts email client only
+        email.setType("message/rfc822");
+
+        startActivity(Intent.createChooser(email, "Choose an Email client"));
     }
 
 

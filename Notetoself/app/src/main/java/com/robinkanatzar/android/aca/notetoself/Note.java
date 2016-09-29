@@ -32,9 +32,9 @@ public class Note {
         mIdea = jo.getBoolean(JSON_IDEA);
         mTodo = jo.getBoolean(JSON_TODO);
         mImportant = jo.getBoolean(JSON_IMPORTANT);
-        if (jo.getString(JSON_IMAGE_STRING) != null) {
+        //if (jo.getString(JSON_IMAGE_STRING) != null) {
             mImageString = jo.getString(JSON_IMAGE_STRING);
-        }
+        //}
     }
 
     // Now we must provide an empty default constructor
@@ -57,9 +57,9 @@ public class Note {
         // TODO Tuesday: call method to convert bitmap to string
         Log.d("RCK", "In Note class, inside convertToJSON()");
 
-        if (mImageString != null) {
+        //if (mImageString != null) {
             jo.put(JSON_IMAGE_STRING, mImageString);
-        }
+        //}
 
         return jo;
     }

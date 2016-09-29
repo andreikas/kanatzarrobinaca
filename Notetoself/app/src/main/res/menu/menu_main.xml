@@ -25,6 +25,10 @@
           android:orderInCategory="100"
           android:showAsAction="never" />
 
+    <item android:id="@+id/about_settings" android:title="@string/about_settings"
+          android:orderInCategory="100"
+          android:showAsAction="never" />
+
     <!-- Our add icon will have its own button -->
     <item android:id="@+id/action_add"
           android:icon="@drawable/ic_add_white_24dp"

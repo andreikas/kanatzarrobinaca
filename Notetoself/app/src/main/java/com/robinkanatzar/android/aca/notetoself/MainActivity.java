@@ -215,6 +215,13 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+        // if about option selected
+        if (id == R.id.about_settings) {
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

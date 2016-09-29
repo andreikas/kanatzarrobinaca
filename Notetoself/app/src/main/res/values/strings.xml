@@ -4,4 +4,5 @@
     <string name="action_add_file">ActionAddFile</string>
     <string name="anims_title">Animation Speed</string>
     <string name="sound_textbox">On or Off</string>
+    <string name="about_settings">About</string>
 </resources>

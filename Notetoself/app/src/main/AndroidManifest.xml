@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.robinkanatzar.android.aca.notetoself">
 
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera2" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:name="android.hardware.camera2"/>
 
     <application
         android:allowBackup="true"
@@ -18,8 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity"
-                  android:parentActivityName=".MainActivity"
+        <activity
+            android:name=".SettingsActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+
+        </activity>
+        <activity android:name=".AboutActivity"
+            android:parentActivityName=".MainActivity"
                   android:theme="@style/AppTheme">
         </activity>
     </application>
