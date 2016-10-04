@@ -21,7 +21,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="blah blah blah \n blah"
+        android:text="With this app you can...\n\nAdd a new note by pressing the &apos;+&apos; icon on the action bar\n\nDelete an existing note by long clicking on the note description on the home screen\n\nEdit an existing note by clicking on the note title and then the 'edit' button\n\nEmail a note to yourself by clicking on the note and then the 'share' button"
         android:id="@+id/textView5"
         android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true"/>

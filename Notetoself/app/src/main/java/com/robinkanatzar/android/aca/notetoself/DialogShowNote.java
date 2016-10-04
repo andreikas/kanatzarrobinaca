@@ -22,7 +22,6 @@ public class DialogShowNote extends DialogFragment {
 
     private Note mNote;
     ImageView mImage;
-    //DialogEditNote editDialog;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -81,15 +80,9 @@ public class DialogShowNote extends DialogFragment {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: call new fragment when edit button clicked
-                //Toast.makeText(getActivity(), "Clicked on edit note button", Toast.LENGTH_SHORT).show();
-                // TODO *** call new activity
 
                 // Create a new dialog window
                 DialogEditNote dialogEdit = new DialogEditNote();
-
-                dialogEdit.sendValuesToEditNote(mNote.getTitle(), mNote.getDescription(), mNote.getImageString(), mNote.isImportant(), mNote.isTodo(), mNote.isIdea());
-
 
                 // if title or description is null...
                 String sendTitle = mNote.getTitle();
@@ -100,6 +93,9 @@ public class DialogShowNote extends DialogFragment {
                 if (sendDescription == null) {
                     sendDescription = "no description";
                 }
+
+                // send values to the edit note activity
+                dialogEdit.sendValuesToEditNote(sendTitle, sendDescription, mNote.getImageString(), mNote.isImportant(), mNote.isTodo(), mNote.isIdea());
 
                 // Show the dialog window with the note in it
                 dialogEdit.show(getFragmentManager(), "");
@@ -113,7 +109,7 @@ public class DialogShowNote extends DialogFragment {
         btnShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: call something to share the note via e-mail or text
+
                 Toast.makeText(getActivity(), "Clicked on share button", Toast.LENGTH_SHORT).show();
                 sendEmail();
 

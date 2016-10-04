@@ -69,7 +69,6 @@ public class DialogNewNote extends DialogFragment{
             @Override
             public void onClick(View v) {
 
-                // TODO - check if fields are empty and do not add. Prevents adding blank notes
 
                 // Create a new instance of the Note class
                 Note newNote = new Note();
@@ -90,6 +89,7 @@ public class DialogNewNote extends DialogFragment{
 
                 // Pass newNote back to MainActivity
                 callingActivity.createNewNote(newNote); // TODO 20
+
 
                 // Quit the dialog
                 dismiss();
