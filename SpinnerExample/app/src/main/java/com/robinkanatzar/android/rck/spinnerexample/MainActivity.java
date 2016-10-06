@@ -17,13 +17,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Spinner element
+        // TODO 1 - Declare the spinner
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
-        // Spinner click listener
+        // TODO 2 - set the on click listener for the spinner
         spinner.setOnItemSelectedListener(this);
 
-        // Spinner Drop down elements
+        // TODO 3 - add the options for the spinner
         List<String> categories = new ArrayList<String>();
         categories.add("Automobile");
         categories.add("Business Services");
@@ -32,13 +32,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         categories.add("Personal");
         categories.add("Travel");
 
-        // Creating adapter for spinner
+        // TODO 4 - make adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
 
-        // Drop down layout style - list view with radio button
+        // TODO 5 - set drop down layout style
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        // attaching data adapter to spinner
+        // TODO 6 - pair adapter to spinner
         spinner.setAdapter(dataAdapter);
     }
 
