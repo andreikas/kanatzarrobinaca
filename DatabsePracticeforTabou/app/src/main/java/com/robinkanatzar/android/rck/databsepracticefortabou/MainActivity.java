@@ -1,24 +1,22 @@
 package com.robinkanatzar.android.rck.databsepracticefortabou;
 
 import android.database.Cursor;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnInsert;
-    Button btnDelete;
-    Button btnSelect;
-    Button btnSearch;
-
-    EditText editName;
-    EditText editAge;
-    EditText editDelete;
-    EditText editSearch;
+    TextView mFrenchWord;
+    TextView mTaboo1;
+    TextView mTaboo2;
+    TextView mTaboo3;
+    TextView mTaboo4;
+    TextView mTaboo5;
+    Button mButtonGetNewWord;
 
     DataManager dm;
 
@@ -29,51 +27,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         dm = new DataManager(this);
 
-        btnInsert = (Button) findViewById(R.id.btnInsert);
-        btnDelete = (Button) findViewById(R.id.btnDelete);
-        btnSelect = (Button) findViewById(R.id.btnSelect);
-        btnSearch = (Button) findViewById(R.id.btnSearch);
-
-        editName = (EditText) findViewById(R.id.editName);
-        editAge = (EditText) findViewById(R.id.editAge);
-        editDelete = (EditText) findViewById(R.id.editDelete);
-        editSearch = (EditText) findViewById(R.id.editSearch);
-
-        btnSelect.setOnClickListener(this);
-        btnInsert.setOnClickListener(this);
-        btnDelete.setOnClickListener(this);
-        btnSearch.setOnClickListener(this);
-
-    }
-
-    public void showData(Cursor c){
-        // Output the cursor contents to the log
-        while (c.moveToNext()){
-            Log.i(c.getString(1), c.getString(2));
-        }
+        mFrenchWord = (TextView) findViewById(R.id.frenchWord);
+        mTaboo1 = (TextView) findViewById(R.id.taboo1);
+        mTaboo2 = (TextView) findViewById(R.id.taboo2);
+        mTaboo3 = (TextView) findViewById(R.id.taboo3);
+        mTaboo4 = (TextView) findViewById(R.id.taboo4);
+        mTaboo5 = (TextView) findViewById(R.id.taboo5);
+        mButtonGetNewWord = (Button) findViewById(R.id.btnGetNewWord);
+        mButtonGetNewWord.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v){
 
-        switch (v.getId()){
-            case R.id.btnInsert:
-                dm.insert(editName.getText().toString(),
-                        editAge.getText().toString());
-                break;
+        showNewWord(dm.getNewWord());
+    }
 
-            case R.id.btnSelect:
-                showData(dm.selectAll());
-                break;
+    public void showNewWord(Cursor c) {
 
-            case R.id.btnSearch:
-                showData(dm.searchName(editSearch.getText().toString()));
-                break;
+        String c1 = "";
+        String c2 = "";
+        String c3 = "";
+        String c4 = "";
+        String c5 = "";
+        String c6 = "";
 
-            case R.id.btnDelete:
-                dm.delete(editDelete.getText().toString());
-                break;
-        }
+        c1 = c.getString(1);
+        c2 = c.getString(2);
+        c3 = c.getString(3);
+        c4 = c.getString(4);
+        c5 = c.getString(5);
+        c6 = c.getString(6);
+
+        Log.d("RCK", "c1-6: " + c1 + c2 + c3 + c4 + c5 + c6);
+
+        mFrenchWord.setText(c1);
+        mTaboo1.setText(c2);
+        mTaboo2.setText(c3);
+        mTaboo3.setText(c4);
+        mTaboo4.setText(c5);
+        mTaboo5.setText(c6);
     }
 }
 
