@@ -10,7 +10,6 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    // For all our buttons and edit text
     Button btnInsert;
     Button btnDelete;
     Button btnSelect;
@@ -21,7 +20,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText editDelete;
     EditText editSearch;
 
-    // This is our DataManager instance
     DataManager dm;
 
     @Override
@@ -31,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         dm = new DataManager(this);
 
-        // get a reference to the UI item
         btnInsert = (Button) findViewById(R.id.btnInsert);
         btnDelete = (Button) findViewById(R.id.btnDelete);
         btnSelect = (Button) findViewById(R.id.btnSelect);
@@ -42,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editDelete = (EditText) findViewById(R.id.editDelete);
         editSearch = (EditText) findViewById(R.id.editSearch);
 
-        // Register MainActivity as a listener
         btnSelect.setOnClickListener(this);
         btnInsert.setOnClickListener(this);
         btnDelete.setOnClickListener(this);
@@ -50,9 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    // Output the cursor contents to the log
     public void showData(Cursor c){
-
+        // Output the cursor contents to the log
         while (c.moveToNext()){
             Log.i(c.getString(1), c.getString(2));
         }
@@ -65,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnInsert:
                 dm.insert(editName.getText().toString(),
                         editAge.getText().toString());
-
                 break;
 
             case R.id.btnSelect:
@@ -79,12 +73,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnDelete:
                 dm.delete(editDelete.getText().toString());
                 break;
-
         }
-
     }
-
-
 }
 
 
