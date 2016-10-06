@@ -61,16 +61,13 @@ public class DataManager {
 
     // Delete a record
     public void delete(String name){
-
         // Delete the details from the table if already exists
         String query = "DELETE FROM " + TABLE_N_AND_A +
                 " WHERE " + TABLE_ROW_NAME +
                 " = '" + name + "';";
 
         Log.i("delete() = ", query);
-
         db.execSQL(query);
-
     }
 
     // Get all the records
@@ -90,10 +87,7 @@ public class DataManager {
                 TABLE_ROW_NAME + " = '" + name + "';";
 
         Log.i("searchName() = ", query);
-
         Cursor c = db.rawQuery(query, null);
-
-
         return c;
     }
 
@@ -128,11 +122,6 @@ public class DataManager {
 
         }
     }
-
-
-
-
-
 
 }
 
