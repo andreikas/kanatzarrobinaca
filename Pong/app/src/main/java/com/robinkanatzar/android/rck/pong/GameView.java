@@ -158,6 +158,8 @@ import java.io.IOException;
             mLives = 3;
         }
 
+        // TODO maybe go back to the first activity through this
+
     }
 
     @Override
@@ -221,6 +223,13 @@ import java.io.IOException;
 
                 if (mLives == 0) {
                     mPaused = true;
+
+                    // TODO go back to StartGameActivity when the user loses
+                    StartGameActivity startGameActivity = new StartGameActivity();
+                    startGameActivity.onNewGame(1);
+
+                    startGameActivity.setLoserText();
+
                     setupAndRestart();
                 }
             }
@@ -266,10 +275,10 @@ import java.io.IOException;
             mCanvas = mOurHolder.lockCanvas();
 
             // Draw the background color
-            mCanvas.drawColor(Color.argb(255, 26, 128, 182));
+            mCanvas.drawColor(Color.argb(255, 255, 255, 255));
 
             // Choose the brush color for drawing
-            mPaint.setColor(Color.argb(255, 255, 255, 255));
+            mPaint.setColor(Color.argb(255, 102, 0, 204));
 
 
             //Draw the mPaddle
@@ -280,7 +289,7 @@ import java.io.IOException;
 
 
             // Choose the brush color for drawing
-            mPaint.setColor(Color.argb(255, 255, 255, 255));
+            mPaint.setColor(Color.argb(255, 102, 0, 204));
 
             // Draw the mScore
             mPaint.setTextSize(40);
@@ -313,7 +322,7 @@ import java.io.IOException;
     }
 
     // The SurfaceView class implements onTouchListener
-// So we can override this method and detect screen touches.
+    // So we can override this method and detect screen touches.
     @Override
     public boolean onTouchEvent(MotionEvent motionEvent) {
 

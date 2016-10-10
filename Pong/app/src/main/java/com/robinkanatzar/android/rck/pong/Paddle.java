@@ -34,8 +34,8 @@ public class Paddle {
     private int mScreenY;
 
     // This is the constructor method
-// When we create an object from this class we will pass
-// in the screen width and mHeight
+    // When we create an object from this class we will pass
+    // in the screen width and mHeight
     public Paddle(int x, int y){
 
         mScreenX = x;
@@ -59,21 +59,22 @@ public class Paddle {
     }
 
     // This is a getter method to make the rectangle that
-// defines our paddle available in GameView class
+    // defines our paddle available in GameView class
     public RectF getRect(){
         return mRect;
     }
 
-    // This method will be used to change/set // if the mPaddle is going
-// left, right or nowhere
+    // This method will be used to change/set
+    // if the mPaddle is going
+    // left, right or nowhere
 
     public void setMovementState(int state){
         mPaddleMoving = state;
     }
 
     // This update method will be called from update in GameView
-// It determines if the paddle needs to move // and changes the coordinates
-// contained in mRect if necessary
+    // It determines if the paddle needs to move // and changes the coordinates
+    // contained in mRect if necessary
     public void update(long fps){
         if(mPaddleMoving == LEFT){
             mXCoord = mXCoord - mPaddleSpeed / fps;
