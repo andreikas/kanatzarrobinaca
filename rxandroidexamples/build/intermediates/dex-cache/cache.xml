@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/robinkanatzar/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="/Users/robinkanatzar/Desktop/kanatzarrobinaca2/kanatzarrobinaca/rxandroidexamples/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1_3bbcbc13a9428c54a0cdabdf4b93cc3794e8d4ae.jar" />
+    </item>
+    <item
+        jar="/Users/robinkanatzar/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.1.0/748f0546d5c3c27f1aef07270ffea0c45f0c42a4/rxjava-1.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="748f0546d5c3c27f1aef07270ffea0c45f0c42a4">
+        <dex dex="/Users/robinkanatzar/Desktop/kanatzarrobinaca2/kanatzarrobinaca/rxandroidexamples/app/build/intermediates/pre-dexed/debug/rxjava-1.1.0_d9901ccd7676b79e873e4908c1ec72b0c0a25dcb.jar" />
+    </item>
+    <item
+        jar="/Users/robinkanatzar/Desktop/kanatzarrobinaca2/kanatzarrobinaca/rxandroidexamples/app/build/intermediates/exploded-aar/io.reactivex/rxandroid/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d4c4b83de2f6412072d2a29b1b7a5b03edaad5ff">
+        <dex dex="/Users/robinkanatzar/Desktop/kanatzarrobinaca2/kanatzarrobinaca/rxandroidexamples/app/build/intermediates/pre-dexed/debug/io.reactivex-rxandroid-1.1.0_0fa4ecc1a5a30fcffe702fd2a043c4162fd60c54.jar" />
+    </item>
+    <item
+        jar="/Users/robinkanatzar/Desktop/kanatzarrobinaca2/kanatzarrobinaca/rxandroidexamples/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/Users/robinkanatzar/Desktop/kanatzarrobinaca2/kanatzarrobinaca/rxandroidexamples/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.1.1_08f1b0502189f8b9c3816e7c6e83c4fe7ba92647.jar" />
+    </item>
+    <item
+        jar="/Users/robinkanatzar/Desktop/kanatzarrobinaca2/kanatzarrobinaca/rxandroidexamples/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/Users/robinkanatzar/Desktop/kanatzarrobinaca2/kanatzarrobinaca/rxandroidexamples/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.1.1_97f825e3fbfa2b86020041adc8393a94bff75652.jar" />
+    </item>
+    <item
+        jar="/Users/robinkanatzar/Desktop/kanatzarrobinaca2/kanatzarrobinaca/rxandroidexamples/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/Users/robinkanatzar/Desktop/kanatzarrobinaca2/kanatzarrobinaca/rxandroidexamples/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.1.1_ba4fc7ae4f7da82442e8457a042b771a70f7a791.jar" />
+    </item>
+    <item
+        jar="/Users/robinkanatzar/Desktop/kanatzarrobinaca2/kanatzarrobinaca/rxandroidexamples/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/Users/robinkanatzar/Desktop/kanatzarrobinaca2/kanatzarrobinaca/rxandroidexamples/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1_137f10ed7bebfc52e1c7d557f9fa9a379875a473.jar" />
+    </item>
+
+</items>
