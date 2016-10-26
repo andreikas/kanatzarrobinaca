@@ -17,10 +17,11 @@ public class Movie {
 
     private String mTitle;
     public static final String TMDB_IMAGE_PATH = "http://image.tmdb.org/t/p/w500";
-    
+
+    // default constructor
     public Movie() {}
 
-
+    // getters and setters
     public String getTitle() {
         return mTitle;
     }
@@ -31,11 +32,9 @@ public class Movie {
 
     public String getPoster() {
         return TMDB_IMAGE_PATH + mPoster;
-
     }
 
     public void setPoster(String poster) {
-
         mPoster = poster;
     }
 
@@ -49,19 +48,17 @@ public class Movie {
 
     public String getBackdrop() {
         return TMDB_IMAGE_PATH  + mBackdrop;
-
     }
 
     public void setBackdrop(String backdrop) {
         mBackdrop = backdrop;
     }
 
+    // inner class MovieResult
     public static class MovieResult {
         private List<Movie> results;
-
         public List<Movie> getResults() {
             return results;
         }
     }
-
 }

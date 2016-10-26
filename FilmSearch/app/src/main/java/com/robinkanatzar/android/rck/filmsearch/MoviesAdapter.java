@@ -17,38 +17,50 @@ public class MoviesAdapter extends RecyclerView.Adapter<MovieViewHolder> {
     private LayoutInflater mInflater;
     private Context mContext;
 
+    // TODO added mMovieClickListener and method
+    private MovieClickListener mMovieClickListener;
+    public MoviesAdapter(MovieClickListener mMovieClickListener) {
+        this.mMovieClickListener = mMovieClickListener;
+    }
+
+
     public MoviesAdapter(Context context) {
         this.mContext = context;
         this.mInflater = LayoutInflater.from(context);
         this.mMovieList = new ArrayList<>();
     }
 
-
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.row_movie, parent, false);
         MovieViewHolder viewHolder = new MovieViewHolder(view);
         return viewHolder;
-
     }
 
     @Override
     public void onBindViewHolder(MovieViewHolder holder, int position) {
-
         Movie movie = mMovieList.get(position);
-
         // This is how we use Picasso to load images from the internet.
         Picasso.with(mContext)
                 .load(movie.getPoster())
                 .placeholder(R.color.colorAccent)
                 .into(holder.imageView);
 
+        // TODO set up on click listener for movie list
+        final Movie thisMovie = mMovieList.get(position);
+        //Callback to RetrofitActivity to perform an action when a cell is selected.
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMovieClickListener.onMovieClicked(thisMovie);
+                //Toast.makeText(mContext, "Item was clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return (mMovieList == null) ? 0 : mMovieList.size();
-
     }
 
     public void setMovieList(List<Movie> movieList){
@@ -59,4 +71,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MovieViewHolder> {
         notifyDataSetChanged();
     }
 
+    // TODO added interface
+    public interface MovieClickListener {
+        void onMovieClicked(Movie movie);
+    }
 }
