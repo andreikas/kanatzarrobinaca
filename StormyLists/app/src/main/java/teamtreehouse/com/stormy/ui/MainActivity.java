@@ -53,6 +53,29 @@ public class MainActivity extends ActionBarActivity {
     @InjectView(R.id.refreshImageView) ImageView mRefreshImageView;
     @InjectView(R.id.progressBar) ProgressBar mProgressBar;
 
+    //----------------------------------------------------------------------------------------------
+    // TODO - Planning App Extension for Clothing Recommendation based on Weather Forecast
+    //
+    // As a <type of user>, I want <some goal> so that <some reason>.
+    //
+    // As a user, I want to see the weather for my current location, so I don't have to input it
+    //      manually.
+    //
+    // As a user, I want to see the weather for a location I select, so it doesn't always default
+    //      to my current location.
+    //
+    // As a user, I want to input information about the locations I will be at during the day,
+    //      so I can get a well-thought outfit for my whole day (or time away from apartment)
+    //      - e.g. inside (cold office) airport, outside in the afternoon
+    //
+    // As a user, I want to see a suggestion customized to my cold or hot nature, so I get a customized
+    //      recommendation instead of a "typical person"
+    //
+    // As a user, I want to be able to "thumbs up" or "thumbs down" my clothing recommendations
+    //      so my recommendations adapt to me.
+    //
+    //----------------------------------------------------------------------------------------------
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
