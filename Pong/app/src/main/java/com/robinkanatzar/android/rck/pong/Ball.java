@@ -17,7 +17,7 @@ public class Ball {
     public Ball(int screenX, int screenY){
 
         // Make the mBall size relative to the screen resolution
-        mBallWidth = screenX / 100;
+        mBallWidth = screenX / 100; // TODO change ball size to make a bigger bubble
         mBallHeight = mBallWidth;
 
           /*

@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
@@ -15,7 +16,7 @@ import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    // resourece http://themakeinfo.com/2015/04/retrofit-android-tutorial/
+    // resouree http://themakeinfo.com/2015/04/retrofit-android-tutorial/
 
     Button click;
     TextView tv;
@@ -27,6 +28,18 @@ public class MainActivity extends AppCompatActivity {
     Button clickTrello;
     TextView tvTrello;
     EditText editTrello;
+
+    Button TrelloAuth;
+
+    String authenticationSuccess = "Authentication successful!";
+    //var authenticationSuccess = function() { console.log(Successful authentication); };
+    String authenticationFailure = "Authenticaation failed!";
+    //var authenticationFailure = function() { console.log(Failed authentication); };
+    String myListID = ""; // TODO insert listID field from board
+
+    Button TrelloAdd;
+    Button TrelloUpdate;
+
 
 
     @Override
@@ -43,6 +56,62 @@ public class MainActivity extends AppCompatActivity {
         clickTrello = (Button) findViewById(R.id.buttonTrello);
         tvTrello = (TextView) findViewById(R.id.tvTrello);
         editTrello = (EditText) findViewById(R.id.editTrello);
+
+        TrelloAuth = (Button) findViewById(R.id.buttonTrelloAuth);
+        TrelloAdd = (Button) findViewById(R.id.buttonAddCard);
+        TrelloUpdate = (Button) findViewById(R.id.buttonTrelloUpdate);
+
+        TrelloUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // udpate card
+
+                // Trello.put('/cards/[ID]', {name: 'New Test Card'});
+            }
+        });
+
+        TrelloAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // add a new card
+
+                /*
+                var newCard = {
+                        name: 'New Test Card',
+                        desc: 'This is the description of our new card.',
+                        // Place this card at the top of our list
+                        idList: myList,
+                        pos: 'top'
+                };
+                Trello.post('/cards/', newCard, creationSuccess);
+                */
+            }
+        });
+
+        TrelloAuth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // trigger user authentication
+
+                Toast.makeText(MainActivity.this, "Attempting to authorize user...", Toast.LENGTH_SHORT).show();
+                // Trello.authenticate method
+                // This method will automatically trigger the OAuth flow and return back a token.
+                // This token will be specific to your Application ID and the user who is executing the flow.
+
+                /*
+                Trello.authorize({
+                        type: 'popup',
+                        name: 'Getting Started Application',
+                        scope: {
+                    read: 'true',
+                            write: 'true' },
+                expiration: 'never',
+                        success: authenticationSuccess,
+                        error: authenticationFailure
+                });
+                */
+            }
+        });
 
         clickTrello.setOnClickListener(new View.OnClickListener() {
             @Override

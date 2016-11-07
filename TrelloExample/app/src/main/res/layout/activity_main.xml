@@ -11,35 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.robinkanatzar.android.rck.trelloexample.MainActivity">
 
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/button"
-        android:onClick="addCard"/>
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp"
-        android:id="@+id/tv"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/tv"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="54dp"
-        android:id="@+id/edit"
-        android:text="basil2style"/>
-
     <ProgressBar
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
@@ -48,29 +19,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="112dp"
         android:id="@+id/pb"/>
-
-    <Button
-        android:text="Trello"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/buttonTrello"/>
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/buttonTrello"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="12dp"
-        android:id="@+id/tvTrello"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/edit"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -82,4 +30,84 @@
         android:layout_alignRight="@+id/button"
         android:layout_alignEnd="@+id/button"
         android:id="@+id/editTrello"/>
+
+    <Button
+        android:text="GIT API"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:onClick="addCard"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button"
+        android:layout_toEndOf="@+id/button"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/edit"
+        android:text="basil2style"
+        android:layout_below="@+id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:text="Trello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonTrello"
+        android:layout_alignBottom="@+id/pb"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="40dp"/>
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTrello"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/pb"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/tv"
+        android:layout_alignEnd="@+id/tv"/>
+
+    <Button
+        android:text="Trello Auth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/buttonTrelloAuth"/>
+
+    <Button
+        android:text="Add New Card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/buttonTrello"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/buttonAddCard"/>
+
+    <Button
+        android:text="Update Card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pb"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="78dp"
+        android:id="@+id/buttonTrelloUpdate"/>
 </RelativeLayout>

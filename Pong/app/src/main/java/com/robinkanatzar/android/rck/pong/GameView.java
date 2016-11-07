@@ -302,7 +302,7 @@ import java.io.IOException;
     }
 
     // If the Activity is paused/stopped
-// shutdown our thread.
+    // shutdown our thread.
     public void pause() {
         mPlaying = false;
         try {
@@ -314,7 +314,7 @@ import java.io.IOException;
     }
 
     // If the Activity starts/restarts
-// start our thread.
+    // start our thread.
     public void resume() {
         mPlaying = true;
         mGameThread = new Thread(this);
