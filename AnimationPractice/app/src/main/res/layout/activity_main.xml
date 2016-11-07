@@ -6,6 +6,7 @@
               android:layout_height="fill_parent"
               android:orientation="vertical"
               android:background="#000000">
+
     <com.robinkanatzar.android.rck.animationpractice.AnimatedView
         android:id="@+id/anim_view"
         android:layout_height="fill_parent"

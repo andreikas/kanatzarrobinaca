@@ -3,6 +3,10 @@ package com.robinkanatzar.android.rck.animationpractice;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
 import android.util.AttributeSet;
@@ -66,7 +70,16 @@ public class AnimatedView extends ImageView {
             }
         }
 
-        c.drawBitmap(ball2.getBitmap(), x+100, y+100, null); // TODO change offset of these
+        Paint paint = new Paint();
+        paint.setColor(Color.WHITE); // Text Color
+        paint.setStrokeWidth(12); // Text thickness
+        paint.setTextSize(50); // Text size
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER)); // Text Overlapping Pattern
+        // some more settings...
+
+        c.drawBitmap(ball2.getBitmap(), x + 100, y+100, paint);
+        c.drawText("Testing...", x+100, y+100, paint);
+        
         h.postDelayed(r, FRAME_RATE);
     }
 }
