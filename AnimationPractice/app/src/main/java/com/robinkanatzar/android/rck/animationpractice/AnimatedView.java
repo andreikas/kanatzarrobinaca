@@ -18,6 +18,8 @@ public class AnimatedView extends ImageView {
     int y = -1;
     private int xVelocity = 0; // keep this as zero so it moves vertically only
     private int yVelocity = 2; // speed it moves up
+    private int xVelocity2 = 0;
+    private int yVelocity2 = 8;
     private Handler h;
     private final int FRAME_RATE = 30;
 
@@ -26,12 +28,14 @@ public class AnimatedView extends ImageView {
         mContext = context;
         h = new Handler();
     }
+
     private Runnable r = new Runnable() {
         @Override
         public void run() {
             invalidate();
         }
     };
+
     protected void onDraw(Canvas c) {
         BitmapDrawable ball = (BitmapDrawable) mContext.getResources().getDrawable(R.mipmap.bubble);
         if (x<0 && y <0) {
@@ -77,9 +81,13 @@ public class AnimatedView extends ImageView {
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER)); // Text Overlapping Pattern
         // some more settings...
 
+        // TODO randomize offset
+        // TODO randomize words from db
+        // TODO make bubbles dissappear off top
+        // TODO on touch listener for bubble
         c.drawBitmap(ball2.getBitmap(), x + 100, y+100, paint);
         c.drawText("Testing...", x+100, y+100, paint);
-        
+
         h.postDelayed(r, FRAME_RATE);
     }
 }

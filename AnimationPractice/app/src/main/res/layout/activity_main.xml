@@ -7,9 +7,10 @@
               android:orientation="vertical"
               android:background="#000000">
 
-    <com.robinkanatzar.android.rck.animationpractice.AnimatedView
+    <com.robinkanatzar.android.rck.animationpractice.BubbleView
         android:id="@+id/anim_view"
         android:layout_height="fill_parent"
-        android:layout_width="fill_parent"/>
+        android:layout_width="fill_parent"
+        />
 </LinearLayout>
 
